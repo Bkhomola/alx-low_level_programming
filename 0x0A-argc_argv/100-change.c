@@ -11,8 +11,11 @@
 
 int main(int argc, char *argv[])
 {
-	int num, j, result;
-	int coins[] = {25, 10, 5, 2, 1};
+/* Declaring variables */
+	int position, total, change, aux;
+	int coins[] = {25, 10, 5, 2, 1}
+
+	position = total = change = aux = 0;
 
 	if (argc != 2)
 	{
@@ -20,16 +23,27 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	num = atoi(argv[1]);
-	result = 0;
+	total = atoi(argv[1]);
 
-	if (num < 0)
+	if (total <= 2)
 	{
 		printf("0\n");
 		return (0);
 	}
 
-	for (j = 0; j < 5 && num >= 0; j++)
+	while (coins[position] != '\0')
+
 	{
-		while (num >= coins[j])
-		{
+		if (total >= coins[position])
+	{
+		aux = (total / coins[position]);
+		change += aux;
+		total -= coins[position] * aux;
+	}
+
+	position++
+	}
+
+		printf("%d\n", change;
+		return (0);
+}
