@@ -1,29 +1,63 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "3-calc.h"
-#include <string.h>
 /**
- * get_op_func - selects the correct function to perform the operation
- * @s: the operator passed to the function
- * Return: nothing
+ * op_add - adds the ints
+ * @a: first int
+ * @b: second int
+ * Return: sum
  */
-int (*get_op_func(char *s))(int, int)
+int op_add(int a, int b)
 {
-	op_t ops[] = {
-		{"+", op_add},
-		{"-", op_sub},
-		{"*", op_mul},
-		{"/", op_div},
-		{"%", op_mod},
-		{NULL, NULL}
-	};
-	int i;
-
-	i = 0;
-	while (i < 5)
+	return (a + b);
+}
+/**
+ * op_sub - subtracts the ints
+ * @a: first int
+ * @b: second int
+ * Return: difference
+ */
+int op_sub(int a, int b)
+{
+	return (a - b);
+}
+/**
+ * op_mul - multiplies the ints
+ * @a: first int
+ * @b: second int
+ * Return: product
+ */
+int op_mul(int a, int b)
+{
+	return (a * b);
+}
+/**
+ * op_div - divides the ints
+ * @a: first int
+ * @b: second int
+ * Return: result
+ */
+int op_div(int a, int b)
+{
+	if (b == 0)
 	{
-		if (strcmp(s, ops[i].op) == 0)
-			return (ops[i].f);
-		i++;
+		printf("Error\n");
+		exit(100);
 	}
-	return (NULL);
+	return (a / b);
+}
+/**
+ * op_mod - remainder of division of ints
+ * @a: first int
+ * @b: second int
+ * Return: remainder
+ */
+int op_mod(int a, int b)
+{
+	if (b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	return (a % b);
 }
