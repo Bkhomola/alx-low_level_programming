@@ -2,19 +2,19 @@
 
 /**
  * list_len - returns the number of elements in a linked list_t list
- * @d: the linked list to check
- * Return: number of elements in @d
+ * @h: the linked list to check
+ * Return: number of elements in @h
  */
 
 size_t list_len(const list_t *h)
 {
-	int counter = 0;
+	int count = 0;
 
-	while (d)
+	while (h)
 	{
-		d = d->next;
-		counter++;
+		h = h->next;
+		count++;
 	}
-	return (counter);
+	return (count);
 
 }
