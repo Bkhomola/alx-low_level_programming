@@ -8,24 +8,34 @@
  */
 
 unsigned int binary_to_uint(const char *b)
-{
-	unsigned int j = 2;
-	unsigned int n;
-	unsigned int c;
-	unsigned int len;
 
-	if (b == NULL)
-	return (0);
-	len = strlen(b);
-	for (c = len; c > 0; c--)
-	{
-		if (b[c] != 48 || b[c] != 49)
+int n = 0;
+	unsigned int n = 0;
+	int power = 0;
+
+	if (b == '\0')
 		return (0);
-		if (b[c] == '1')
+
+	while (b[n + 1])
+		n++;
+
+	while (i >= 0)
 	{
-		n += atoi(b) * j;
-	}
-	j *= 2;
+		if (b[n] == '0')
+		{
+			n--;
+			power++;
+		}
+		else if (b[n] == '1')
+		{
+			n += (1 << power);
+			n--;
+			power++;
+		}
+		else
+			return (0);
 	}
 	return (n);
+
+
 }
