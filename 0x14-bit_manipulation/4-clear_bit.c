@@ -8,16 +8,13 @@
  */
 
 int clear_bit(unsigned long int *n, unsigned int index)
-
 {
-	int mask = 1 << n;
+	unsigned int bit = sizeof(n) * 8 - 1;
+	unsigned int mask = 1;
 
-	return ((n & ~mask) | (b << n));
-}
+	if (index > bit)
+		return (-1);
 
-int main(void)
-{
-	printf("%d\n", modifyBit(6, 2, 0));
-	printf("%d\n", modifyBit(6, 5, 1));
-	return (0);
+	*n = *n & ~(mask << index);
+	return (1);
 }
