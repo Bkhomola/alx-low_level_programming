@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * get_bit - returns the value of a bit at the given index
@@ -8,16 +8,17 @@
  */
 
 int get_bit(unsigned long int n, unsigned int index)
-
 {
-	int mask = 1 << p;
+	unsigned int mask = 1;
+	unsigned int bit = sizeof(n) * 8 - 1;
 
-	return ((n & ~mask) | (b << p));
-}
+	if (index > bit)
+		return (-1);
 
-int main(void)
-{
-	printf("%d\n", modifyBit(6, 2, 0));
-	printf("%d\n", modifyBit(6, 5, 1));
-	return (0);
+	mask = mask << index;
+
+	if (n & mask)
+		return (1);
+	else
+		return (0);
 }
