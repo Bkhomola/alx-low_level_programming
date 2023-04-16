@@ -8,13 +8,21 @@
 
 void print_binary(unsigned long int n)
 {
-	int i;
+	int c = 0;
+	int bit = sizeof(n) * 8 - 1;
 
-	for (i = 1 << 31; i > 0; i = i / 2)
-	(n & i) ? printf("1") : printf("0");
-}
-{
-	bin(7);
-	printf("\n");
-	bin(4);
+	if (n == 0)
+		_putchar('0');
+
+	while (bit >= 0)
+	{
+		if (n >> bit & 1)
+		{
+			_putchar('1');
+			c++;
+		}
+		else if (c)
+			_putchar('0');
+		bit--;
+	}
 }
