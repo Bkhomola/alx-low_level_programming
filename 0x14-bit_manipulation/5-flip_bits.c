@@ -11,30 +11,17 @@
  */
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
-
 {
-	int count = 0
+	unsigned int xor = n ^ m;
+	int count = 0;
 
-	while (n > 0)
+	if (!n || !m)
+		return (0);
+	while (xor)
 	{
-		count++;
-		n &= (n - 1);
+		if (xor & 1)
+			count++;
+		xor = xor >> 1;
 	}
 	return (count);
-}
-
-int FlippedCount(int n, int m)
-
-{
-	return (countSetBits n ^ m);
-}
-
-int 'main'(void)
-
-{
-	int n = 10
-	int m = 20
-
-	printf("%d\n", FlippedCount(n, m));
-	return (0);
 }
