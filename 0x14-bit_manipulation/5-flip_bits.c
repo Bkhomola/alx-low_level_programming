@@ -5,8 +5,6 @@
  * to get from one number to another
  * @n: the first number
  * @m: the second number
- * @FlippedCount: count set bits
- * @main: calculate n and m
  * Return: the number of flipped bits
  */
 
